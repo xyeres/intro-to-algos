@@ -3,9 +3,13 @@ def merge_sort(list):
     Sorts a list in ascending order
     Returns a new sorted list
 
-    # Divide find midpoint and divide into sublists
-    # Conquer recursively sort sub lists
-    # Combine merge sorted sublists
+    Divide find midpoint and divide into sublists
+    Conquer recursively sort sub lists
+    Combine merge sorted sublists
+
+    
+    Time complexity: O(n log n) (Because we multiply the two functions called)
+
     """
 
     if len(list) <= 1:
@@ -22,6 +26,7 @@ def split(list):
     """
     Divide the unsorted list at midpoint into sublists
     Returns two sublists - left and right
+    Time overall: O(log n)
     """
 
     mid = len(list) // 2
@@ -33,8 +38,9 @@ def split(list):
 
 def merge(left, right):
     """
-    Merges two lists sorting them in the proces
-    Returns a news m,erged list
+    Merges two lists sorting them in the process
+    Returns a new merged list
+    Time overall: O(n)
     """
     l = []
     i = 0
@@ -55,3 +61,19 @@ def merge(left, right):
     while j < len(right):
         l.append(right[j])
         j += 1
+    
+    return l
+
+
+def verify_sorted(list):
+    n = len(list)
+    if n == 0 or n == 1:
+        return True
+
+    return list[0] < list[1] and verify_sorted(list[1:])
+
+alist = [4,5,77,65,345]
+l = merge_sort(alist)
+print(l)
+print(verify_sorted(alist))
+print(verify_sorted(l))
