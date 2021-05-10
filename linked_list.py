@@ -100,7 +100,7 @@ class LinkedList:
 
     def add(self, data):
         """
-        Adds new node containing data at head of list
+        Adds new node to head of linked list containing data
         Time: O(n)
         """
         new_node = Node(data)
@@ -129,7 +129,7 @@ class LinkedList:
         nodes = []
         current = self.head
 
-        while current:
+        while current  != None:
             if current is self.head:
                 nodes.append("[Head: %s]" % current.data)
             elif current.next_node is None:
