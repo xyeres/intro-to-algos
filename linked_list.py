@@ -21,7 +21,7 @@ class LinkedList:
 
     def __init__(self):
         self.head = None
-    
+
     def search(self, key):
         """
         Search for 1st node containing data that matches the key
@@ -47,7 +47,7 @@ class LinkedList:
         if index == 0:
             self.add(data)
             return
-        
+
         if index > 0:
             new = Node(data)
             position = index
@@ -82,8 +82,6 @@ class LinkedList:
                 previous = current
                 current = current.next_node
 
-
-
     def is_empty(self):
         return self.head is None
 
@@ -109,6 +107,19 @@ class LinkedList:
         new_node.next_node = self.head
         self.head = new_node
 
+    def node_at_index(self, index):
+        if index == 0:
+            return self.head
+        else:
+            current = self.head
+            position = 0
+
+            while position < index:
+                current = current.next_node
+                position += 1
+
+            return current
+
     def __repr__(self):
         """
         Returns a string representation of the list.
@@ -129,6 +140,8 @@ class LinkedList:
             current = current.next_node
 
         return " -> ".join(nodes)
+
+
 '''
 class Node:
     """
